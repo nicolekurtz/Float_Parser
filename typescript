@@ -1,0 +1,54 @@
+Script started on 2021-05-08 17:03:20-07:00 [TERM="xterm-256color" TTY="/dev/pts/25" COLUMNS="145" LINES="40"]
+nkurtz@ada:~/cs201/hw3$ make
+gcc -Wall -Og -g -o float float.c functions.c -lm
+[01m[Kfloat.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kfloat.c:24:3:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kerror[m[K’; did you mean ‘[01m[Kperror[m[K’? [[01;35m[K-Wimplicit-function-declaration[m[K]
+   24 |   [01;35m[Kerror[m[K(EXIT_FAILURE, 0, "Error: please enter in 3 arguments: frac bit, exponent bit, hex.\n");
+      |   [01;35m[K^~~~~[m[K
+      |   [32m[Kperror[m[K
+[01m[Kfloat.c:53:6:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Khex_bit_counter[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+   53 |  if(([01;35m[Khex_bit_counter[m[K(*hex)) > (*exp_bit + *frac_bit + 1))
+      |      [01;35m[K^~~~~~~~~~~~~~~[m[K
+nkurtz@ada:~/cs201/hw3$ ./float 
+./float: Error: please enter in 3 arguments: frac bit, exponent bit, hex.
+
+nkurtz@ada:~/cs201/hw3$ ./float 11 4 33f
+./float: Invalid number of fraction bit. Should be between 2 and 10.
+
+nkurtz@ada:~/cs201/hw3$ ./float 4 8 33f
+./float: Invalid number of exponent bit. Should be between 3 and 5.
+
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 a334
+./float: Hexadecimal does not match number of bits provided.
+
+nkurtz@ada:~/cs201/hw3$ ./float 3 4 skipadoo
+./float: Third argument is not a valid hexadecimal.
+
+nkurtz@ada:~/cs201/hw3$ ./float 4 4 1af
+-15.500000
+nkurtz@ada:~/cs201/hw3$ ./float 4 4 af
+15.500000
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 3c
+NaN
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 38
++inf
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 78
+-inf 
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 26
+3.500000
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 18
+1.000000
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 3f
+NaN
+nkurtz@ada:~/cs201/hw3$ ./float 3 3 37
+15.000000
+nkurtz@ada:~/cs201/hw3$ ./float 3[K4 4 0
+0.000000
+nkurtz@ada:~/cs201/hw3$ ./float 4 4 0
+0.000000
+nkurtz@ada:~/cs201/hw3$ ./float 4 4 100
+-0.000000
+nkurtz@ada:~/cs201/hw3$ exit
+exit
+
+Script done on 2021-05-08 17:07:07-07:00 [COMMAND_EXIT_CODE="0"]
